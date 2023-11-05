@@ -5,7 +5,7 @@ const data = require('./data')
 
 // Connect to DATABASE
 // const DATABASE_URL = "mongodb://localhost/subscribers";
-const DATABASE_URL = process.env.MONGODB_URI
+const DATABASE_URL = "mongodb+srv://mdshadabkhan4256:oBb6nu0M8FCanwlQ@cluster0.aarbpdf.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(DATABASE_URL,{ useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection
