@@ -15,12 +15,12 @@ app.get('/', (req, res) => {
 // shows an array of all database subscribers.
 app.get('/subscribers', async (req, res) => {
     try {
-        const subscribers = await subscriberModal.find().select("-__v");
-        res.json(subscribers);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+        let subscribers = await schema.find(); // Retrieve all subscribers from the schema/model
+        res.status(200).json(subscribers); // Send the subscribers as a JSON response with a status of 200 (OK)
+      } catch (err) {
+        res.status(400); // Set the response status to 400 (Bad Request)
+        next(err); // Pass the error to the error handling middleware
+      }
 });
 
 // shows a list of subscribers' names and subscribed channels in the database.
