@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 // shows an array of all database subscribers.
-app.get('/subscribers', async (req, res) => {
+app.get('/subscribers', async (req, res,next) => {
     try {
         let subscribers = await schema.find(); // Retrieve all subscribers from the schema/model
         res.status(200).json(subscribers); // Send the subscribers as a JSON response with a status of 200 (OK)
